@@ -6,10 +6,14 @@ public class DamkaBoard {
 		int n = Integer.parseInt(args[0]);
 		for (int i = 0; i < n; i++) {
 			for(int j = 0; j < n; j++) {
-				System.out.print("* ");
+				if (j == (n-1)) {
+					System.out.print("*");
+				} else {
+					System.out.print("* ");
+				}
 			}
 			System.out.println();
-			if (i%2 == 0) {
+			if (i%2 == 0 && i != n-1) {
 				System.out.print(" ");
 			}
 		}
