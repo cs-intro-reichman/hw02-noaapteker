@@ -26,7 +26,7 @@ public class OneOfEachStats {
 			boolean girl = false;
 			boolean boy = false;
 			while (boy == false || girl == false) {
-				int random = (int)(generator.nextDouble()*((2)+1));
+				int random = (int)(generator.nextDouble()*2+1);
 				sum = sum + 1;
 				sumToAverage = sumToAverage + 1;
 				if (random == b) {
