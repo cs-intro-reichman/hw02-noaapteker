@@ -13,17 +13,50 @@ public class OneOfEachStats {
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);  
-		
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
-		//// This is the only change that you have to do in the program.
-		    
+        Random generator = new Random(seed);
+		double sumToAverage = 0;
+		int sum2 = 0;
+		int sum3 = 0;
+		int sum4 = 0;
+		int sum = 0;
+		String commonNum = "";
+		for (int i = 1; i<=T; i++) {
+			int b = 1;
+			int g = 2;
+			boolean girl = false;
+			boolean boy = false;
+			while (boy == false || girl == false) {
+				int random = (int)(generator.nextDouble()*((2)+1));
+				sum = sum + 1;
+				sumToAverage = sumToAverage + 1;
+				if (random == b) {
+					boy = true;
+				} else {
+					girl = true;
+				}
+			}
+			if (sum == 2) {
+				sum2 = sum2 + 1;
+			} else if (sum == 3) {
+				sum3 = sum3 + 1;
+			} else if (sum >= 4) {
+				sum4 = sum4 + 1;
+			}
+			sum = 0;
+		}
+		sumToAverage = sumToAverage/T;
+		int sumMax = Math.max(Math.max(sum2,sum3),sum4);
+		if (sumMax == sum2) {
+			commonNum = "2";
+		} else if (sumMax == sum3) {
+			commonNum = "3";
+		} else if (sumMax == sum4) {
+			commonNum = "4 or more";
+		}
+		System.out.println("Average: " + sumToAverage + " children to get at least one of each gender.");
+		System.out.println("Number of families with 2 children: " + sum2);
+		System.out.println("Number of families with 3 children: " + sum3);
+		System.out.println("Number of families with 4 or more children: " + sum4);
+		System.out.println("The most common number of children is " + commonNum + ".");
 	}
 }
