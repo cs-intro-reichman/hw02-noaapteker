@@ -21,5 +21,6 @@ public class DamkaBoard {
 			}
 		}
 		System.out.println();
+		/*too much of a complex code, could been done a lot simpler */
 	}
 }

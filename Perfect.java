@@ -10,6 +10,7 @@ public class Perfect {
 			if (num%i == 0) {
 				sum = sum + i;
 				sentence = sentence + " + " + i;
+				/* good use of string variable*/
 			}
 		}
 		if (sum == num) {
